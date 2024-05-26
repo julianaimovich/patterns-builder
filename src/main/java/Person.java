@@ -14,12 +14,6 @@ public class Person {
         this.address = builder.address;
     }
 
-    public Person(String name, String surname, int age) {
-        this.name = name;
-        this.surname = surname;
-        this.age = OptionalInt.of(age);
-    }
-
     public boolean hasAge() {
         return age.isPresent();
     }
