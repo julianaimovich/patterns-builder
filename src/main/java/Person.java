@@ -4,18 +4,33 @@ public class Person {
 
     protected final String name;
     protected final String surname;
-    protected OptionalInt age;
+    protected int age;
     protected String address;
+    protected boolean isAgeSpecified;
 
-    public Person(PersonBuilder builder) {
-        this.name = builder.name;
-        this.surname = builder.surname;
-        this.age = OptionalInt.of(builder.age);
-        this.address = builder.address;
+    public Person(String name, String surname, boolean isAgeSpecified) {
+        this.name = name;
+        this.surname = surname;
+        this.isAgeSpecified = isAgeSpecified;
+    }
+
+    public Person(String name, String surname, int age, boolean isAgeSpecified) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.isAgeSpecified = isAgeSpecified;
+    }
+
+    public Person(String name, String surname, int age, String address, boolean isAgeSpecified) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.address = address;
+        this.isAgeSpecified = isAgeSpecified;
     }
 
     public boolean hasAge() {
-        return age.isPresent();
+        return isAgeSpecified;
     }
 
     public boolean hasAddress() {
@@ -31,8 +46,8 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        if (age.isPresent()) {
-            return age;
+        if (hasAge()) {
+            return OptionalInt.of(age);
         } else {
             return OptionalInt.empty();
         }
@@ -48,7 +63,8 @@ public class Person {
 
     public void happyBirthday() {
         if (hasAge()) {
-            this.age = OptionalInt.of(age.getAsInt() + 1);
+            this.age = age + 1;
+            System.out.println(this.age);
         }
     }
 
@@ -62,6 +78,7 @@ public class Person {
         childBuilder.setSurname(surname);
         childBuilder.setAge(0);
         childBuilder.setAddress(address);
+        childBuilder.isChild = true;
         return childBuilder;
     }
 }
