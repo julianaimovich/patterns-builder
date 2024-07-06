@@ -35,7 +35,7 @@ public class PersonBuilder {
             throw new IllegalStateException("Фамилия должна быть указана");
         }
 
-        Person person = new Person(this.name, this.surname, false);
+        Person person = new Person(this.name, this.surname);
 
         if (this.isChild || this.age != 0) {
             person.age = this.age;

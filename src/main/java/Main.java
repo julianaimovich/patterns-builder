@@ -25,5 +25,8 @@ public class Main {
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
+
+        System.out.println(mom.getAge());
+        System.out.println(son.getAge());
     }
 }

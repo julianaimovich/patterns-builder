@@ -8,25 +8,25 @@ public class Person {
     protected String address;
     protected boolean isAgeSpecified;
 
-    public Person(String name, String surname, boolean isAgeSpecified) {
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.isAgeSpecified = isAgeSpecified;
+        this.isAgeSpecified = false;
     }
 
-    public Person(String name, String surname, int age, boolean isAgeSpecified) {
+    public Person(String name, String surname, int age) {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.isAgeSpecified = isAgeSpecified;
+        this.isAgeSpecified = true;
     }
 
-    public Person(String name, String surname, int age, String address, boolean isAgeSpecified) {
+    public Person(String name, String surname, int age, String address) {
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.address = address;
-        this.isAgeSpecified = isAgeSpecified;
+        this.isAgeSpecified = true;
     }
 
     public boolean hasAge() {
